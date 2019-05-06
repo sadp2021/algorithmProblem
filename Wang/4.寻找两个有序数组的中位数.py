@@ -18,9 +18,9 @@ class Solution:
     if n == 0:
       raise ValueError
 
-    imin, imax, half_len = 0, m, (n + m + 1) / 2
+    imin, imax, half_len = 0, m, (n + m + 1) // 2
     while imin <= imax:
-      i = (imin + imax) / 2
+      i = (imin + imax) // 2
       j = half_len - i
       if i < m and nums2[j - 1] > nums1[i]:
         imin = i + 1
@@ -30,7 +30,7 @@ class Solution:
         if i == 0:
           max_of_left = nums2[j - 1]
         elif j == 0:
-          max_of_right = nums1[i - 1]
+          max_of_left = nums1[i - 1]
         else:
           max_of_left = max(nums1[i - 1], nums2[j - 1])
 
