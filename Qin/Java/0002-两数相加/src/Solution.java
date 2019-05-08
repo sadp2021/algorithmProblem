@@ -70,7 +70,6 @@ public class Solution {
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
-//		System.out.println((int)(9/10));
 		ListNode l1 = new ListNode(-1);
 		ListNode l2 = new ListNode(-1);
 		int n = scan.nextInt();
