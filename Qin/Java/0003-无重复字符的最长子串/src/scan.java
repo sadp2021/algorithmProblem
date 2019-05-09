@@ -3,32 +3,30 @@ import java.util.*;
 class Solution {
 	public int lengthOfLongestSubstring(String s) {
 		int j = 0, maxlen = 0;
-		String res = "";
-//		String r = "";
+		Deque<Character> res = new LinkedList<Character>();
 		for (int i = 0; i < s.length(); i++) {
-			int index = res.indexOf(s.charAt(i));
-			if (index != -1) {
-				if (j > maxlen) {
-					maxlen = j;
-//					r = res;
-				}
-				i -= j - index;
-				j = 0;
-				res = "";
-				continue;
+			char ch = s.charAt(i);
+			if(res.contains(ch)) {
+				char t;
+				do {
+					t = res.removeFirst();
+					j--;
+				} while(t != ch);
+				res.addLast(ch);
+				j++;
 			} else {
-				res += s.charAt(i);
+				res.addLast(ch);
 				j++;
 			}
+			maxlen = Math.max(maxlen, j);
 		}
-//		System.out.println(r);
-		return maxlen == 0 ? j : maxlen;
+		return maxlen;
 	}
 }
 
 public class scan {
 	public static void main(String[] args) {
-		String s = "aab";
+		String s = "asdaf";
 		Solution so = new Solution();
 		System.out.println(so.lengthOfLongestSubstring(s));
 	}
