@@ -1,4 +1,5 @@
 import random
+import time
 
 
 def extends_find(s: str, i: int, o: int) -> int:
@@ -60,6 +61,8 @@ def longest_palindrome(s: str) -> str:
 
             if dp[l][r] and i + 1 > maxlen:
                 maxlen = i + 1
+
+    # 可能有多个最长子序列，这里取第一个
     for i in range(length):
         for j in range(length - i):
             if dp[j][i + j] and i + 1 == maxlen:
@@ -73,11 +76,26 @@ def get_random_array(size: int) -> str:
     return rand
 
 
+def exe_time(s: str, times: int) -> float:
+    """
+    :param s: String
+    :param times: execute times
+    :return: last time
+    """
+    start = time.time()
+    for i in range(times):
+        # longest_palindrome(s)
+        extends_mid(s)
+    end = time.time()
+    return end - start
+
+
 def main():
-    s = get_random_array(2000)
+    s = get_random_array(1000)
     print(s)
     print(longest_palindrome(s))
     print(extends_mid(s))
+    print(exe_time(s, 100))
 
 
 if __name__ == "__main__":
