@@ -9,6 +9,7 @@ class Solution {
 			if(ch == '('|| ch == '['||ch == '{') {
 				stack.push(ch);
 			} else {
+				if(stack.isEmpty()) return false;
 				char t = stack.pop();
 				if(t == '(' && ch != ')') return false;
 				if(t == '[' && ch != ']') return false;
