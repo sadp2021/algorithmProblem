@@ -15,7 +15,7 @@ class Solution {
         		j++;
         	}
         }
-        return i;
+        return i+1;
     }
 }
 public class removeDuplicates {
