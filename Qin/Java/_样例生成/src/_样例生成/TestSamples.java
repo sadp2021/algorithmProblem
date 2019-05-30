@@ -61,7 +61,7 @@ public class TestSamples {
 	}
 
 	public static void main(String[] args) {
-		generator1DSample(4, 10, 5, 10);
-		generator2DSample(4, 4, 6, 7, 20);
+//		generator1DSample(4, 10, 5, 10);
+//		generator2DSample(4, 4, 6, 7, 20);
 	}
 }
