@@ -1,10 +1,14 @@
 class Solution {
-    public int findFirst(String str) {
+	public int findFirst(String str) {
 		char[] chs = str.toCharArray();
+		boolean flag = true;
 		for (int i = 0; i < chs.length; i++) {
-			if (chs[i] == ' ' || chs[i] == '-' || chs[i] == '+')
+			if (chs[i] == ' ' && flag)
 				continue;
-			else {
+			else if ((chs[i] == '-' || chs[i] == '+') && flag) {
+				flag = false;
+				continue;
+			} else {
 				if (chs[i] >= '0' && chs[i] <= '9')
 					return i;
 				else
@@ -37,9 +41,9 @@ class Solution {
 		int res = 0;
 		try {
 			res = Integer.parseInt(num);
-			return positive?res:-res;
-		} catch(Exception e) {
-			return positive?2147483647:-2147483648;
+			return positive ? res : -res;
+		} catch (Exception e) {
+			return positive ? 2147483647 : -2147483648;
 		}
 	}
 }

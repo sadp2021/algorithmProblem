@@ -61,7 +61,9 @@ public class TestSamples {
 	}
 
 	public static void main(String[] args) {
-//		generator1DSample(4, 10, 5, 10);
+		//<number of samples> <size> <min> <max>
+		generator1DSample(100, 20, 1, 20);
+		//<number of samples> <row> <col> <min> <max>
 //		generator2DSample(4, 4, 6, 7, 20);
 	}
 }
