@@ -1,4 +1,4 @@
-class Solution {
+class Solution1 {
     public String longestCommonPrefix(String[] strs) {
         if (strs.length == 0)
             return "";
@@ -31,10 +31,10 @@ class Solution {
     }
 }
 
-public class longestCommonPrefix {
+public class longestCommon {
     public static void main(String[] args) {
-        Solution so = new Solution();
-        String[] strs = {"","2","22"};
+        Solution1 so = new Solution1();
+        String[] strs = {"2","2","22"};
         System.out.println(so.longestCommonPrefix(strs));
     }
 }
