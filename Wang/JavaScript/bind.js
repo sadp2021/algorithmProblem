@@ -1,20 +1,13 @@
-Function.prototype.myBind = function(content) {
-  if (typeof this !== 'function') {
-    throw Error('not a function');
-  }
-  // 若没问参数类型则从这开始写
-  let fn = this;
-  let args = [...arguments].slice(1);
-
-  let resFn = function() {
-    return fn.apply(
-      this instanceof resFn ? this : content,
-      args.concat(...arguments)
-    );
+Function.prototype.myBind = function(context) {
+  let args = arguments.slice(1);
+  // 保存当前的函数
+  let func = this;
+  var returnFunc = function() {
+    // 将两次获取到的参数合并
+    Array.prototype.push.apply(args, arguments);
+    // 使用apply改变上下文
+    return func.apply(this instanceof returnFunc ? this : context, args);
   };
-  function tmp() {}
-  tmp.prototype = this.prototype;
-  resFn.prototype = new tmp();
-
-  return resFn;
+  returnFunc.prototype = new func();
+  return returnFunc;
 };

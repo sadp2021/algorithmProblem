@@ -14,4 +14,4 @@ function bar(name, age) {
   console.log(age);
   console.log(this.value);
 }
-bar.call2(foo, 'black', '18'); // black 18 1
+bar.myCall(foo, 'black', '18'); // black 18 1
