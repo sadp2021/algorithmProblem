@@ -6,3 +6,5 @@
 .imi
 .vscode
 .DS_Store
+.out
+.o
